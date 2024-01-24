@@ -71,6 +71,11 @@ QgsProject.instance().write()
 
 
 
+
+
+
+
+
 Verilen Ödev kapsamında yapılmak istenilen projede kullanılması planlanan python kodları için ChatGpt kullanılmıştır.
 Vize 2 ödevi için verilen Ankara Mahalleler .shp dosyasında öznitelik tablosunda yer alan NAME sütunu ile ortak sütunu olan .csv dosyası oluşturuldu.
 Burada internetten alınan nüfus verileri kullanıldı.
