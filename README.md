@@ -65,3 +65,66 @@ QgsProject.instance().reloadAllLayers()
 
 # QGIS projesini kaydedin
 QgsProject.instance().write()
+
+
+
+
+
+
+Verilen Ödev kapsamında yapılmak istenilen projede kullanılması planlanan python kodları için ChatGpt kullanılmıştır.
+Vize 2 ödevi için verilen Ankara Mahalleler .shp dosyasında öznitelik tablosunda yer alan NAME sütunu ile ortak sütunu olan .csv dosyası oluşturuldu.
+Burada internetten alınan nüfus verileri kullanıldı.
+.shp ve .csv dosyaları join komutu ile aynı sütun bilgisi üzerinden birleştirildi.
+
+Qgiste yer alan python eklentisinde yukarıda yer alan kodlar çalıştırılmaya başlanıldığında;
+İlk olarak; 
+TypeError: QgsRendererCategory(): arguments did not match any overloaded call:
+      overload 1: too many arguments
+      overload 2: argument 5 has unexpected type 'bool'
+      overload 3: argument 1 has unexpected type 'str' hatası alındı. 
+
+bu hata ile ilgili çözüm olarak; 
+  "QgsRendererCategory" kullanımı değiştirildi.
+
+İkinci olarak;
+
+File "<string>", line 35, in <module>
+    TypeError: 'field' is an unknown keyword argument hatası alındı.
+bu hata ile ilgili çözüm olarak;
+QgsRendererCategory'nin yerine QgsCategoryRenderer sınıfı kullanıldı ve kodlar buna göre düzenlendi.
+
+Üçüncü olarak;
+
+TypeError: QgsRendererCategory(): arguments did not match any overloaded call:
+  overload 1: too many arguments
+  overload 2: argument 5 has unexpected type 'bool'
+  overload 3: argument 1 has unexpected type 'str' hatası alındı.
+QgsRendererCategory için gereken parametrelerinin tekrardan düzenlenerek kullanımı doğrultusunda kodlar yeniden düzenlendi 'setCategories' yöntemi kullanıldı ve çalıştırıldı.
+
+Dördüncü olarak;
+
+CSV dosyası yüklenemedi hatası ile birlikte; AttributeError: 'QgsCategorizedSymbolRenderer' object has no attribute 'setCategories' hatası alındı. 
+çözüm önerisi olarak; kodlar aynı şekilde tekrardan yazdırılması önerildi.
+
+Kodlar tekrar gözden geçirilerek yazıldığında;
+
+Beşinci olarak;
+Traceback (most recent call last):
+  File "C:\PROGRA~1\QGIS33~1.1\apps\Python39\lib\code.py", line 90, in runcode
+    exec(code, self.locals)
+  File "<input>", line 1, in <module>
+  File "<string>", line 48, in <module>
+    AttributeError: 'QgsCategorizedSymbolRenderer' object has no attribute 'setCategories' hatası alındı.
+
+Çözüm olarak; QgsRendererCategory kullanımının değişimi önerildi ve kodlar tekrar düzenlendi ve yine aynı hatalar alındı.
+
+Bunlar doğrutulsunda yapılanlara ek olarak; yoğunluk haritası kısmında eksik kalan kısımlar için Qgis programı ile shp ve csv dosyalarının ortak sütunu ile sayısallaştırma yapıldı ve nüfus yoğunluğuna göre haritada renklendirme yapılarak; lejant eklenerek dosya kaydedildi.
+
+
+
+
+
+
+
+
+
